@@ -19,7 +19,7 @@ public class TP1_convertisseur_BARGY_DU_GARDIN {
     
     // Créer un objet Scanner pour la saisie de l'utilisateur
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Veuillez saisir une valeur réelle (type double) : ");
+        System.out.print("Veuillez saisir une valeur reelle (type double) : ");
 
         // Utiliser la méthode nextDouble() pour lire la valeur réelle
         double tempe = scanner.nextDouble();
@@ -54,12 +54,12 @@ public static double KelvinVersFarenheit (double tKelvin) {
 public static double FarenheitVersKelvin (double tFarenheit) {
     return(CelciusVersKelvin(FarenheitVersCelcius(tFarenheit)));   
 }
-public static void menu(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+public static double menu(String[] args) {
+    double resultat = 0 ;    
+    Scanner scanner = new Scanner(System.in);
 
         System.out.println("Bonjour, saisissez une valeur :");
         double valeur = scanner.nextDouble();
-
         System.out.println("Saisissez la conversion que vous souhaitez effectuer :");
         System.out.println("1) De Celcius vers Kelvin");
         System.out.println("2) De Kelvin vers Celcius");
@@ -69,34 +69,25 @@ public static void menu(String[] args) {
         System.out.println("6) De Farenheit vers Kelvin");
         int choix = scanner.nextInt();
 
-        switch (choix) {
-            case 1:
-                double celsiusVersKelvin = CelciusVersKelvin(valeur);
-                System.out.println(valeur + " degré celcius est égal à " + celsiusVersKelvin + " degrés kelvin.");
-                break;
-
-            case 2:
-                double KelvinVersCelcius = KelvinVersCelcius(valeur);
-                System.out.println(valeur + " degré Kelvin est égal à " + KelvinVersCelcius + " degrés Celsius.");
-                break;
-            case 3:
-                double farenheitVersCelcius = KelvinVersCelcius(valeur);
-                System.out.println(valeur + " degré Kelvin est égal à " + KelvinVersCelcius(t) + " degrés Celsius.");
-                break;
-            case 4:
-                double farenheitVersCelcius = KelvinVersCelcius(valeur);
-                System.out.println(valeur + " degré Kelvin est égal à " + KelvinVersCelcius(t) + " degrés Celsius.");
-                break;
-            case 5:
-                double farenheitVersCelcius = KelvinVersCelcius(valeur);
-                System.out.println(valeur + " degré Kelvin est égal à " + KelvinVersCelcius(t) + " degrés Celsius.");
-                break;
-            
-            
-            default:
-                System.out.println("Choix invalide.");
+        if(choix==1){
+            resultat=(CelciusVersKelvin(valeur));
         }
-
         scanner.close();
-    }
+        if(choix==2){
+            resultat=(KelvinVersCelcius(valeur));
+        }
+        if(choix==3){
+            resultat=(FarenheitVersCelcius(valeur));
+                }
+        if (choix==4){
+            resultat=(CelciusVersFarenheit(valeur));
+        }
+        if(choix==5){
+            resultat=(KelvinVersFarenheit(valeur));
+        }
+        if(choix==6){
+            resultat=(FarenheitVersCelcius(valeur));
+        }
+   return resultat;     
+}
 }
